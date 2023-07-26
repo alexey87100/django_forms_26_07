@@ -1,0 +1,17 @@
+{% extends 'base.html' %}  
+
+{% block title %} 
+  Сотрудники с навыком {{ skill }}
+{% endblock %} 
+
+{% block content %} 
+  <h1 align="center">Сотрудники с навыком {{ skill.name }}</h1>
+  <h4>Важность навыка - {{ skill.value }}
+  <div class="container py-5">  
+    {% for profile in profiles %}
+      <article>
+        Имя - {{ profile.name }}, Возраст - {{ profile.age }}, Навык - {{ profile.skill }}
+      </article>
+    {% endfor %}
+  </div>
+{% endblock %}  

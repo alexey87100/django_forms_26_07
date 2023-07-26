@@ -1,0 +1,16 @@
+{% extends 'base.html' %}  
+
+{% block title %} 
+  Главная страница проекта
+{% endblock %} 
+
+{% block content %} 
+  <h1 align="center">Главная страница проекта</h1>
+  <div class="container py-5">  
+    {% for profile in profiles %}
+      <article>
+        Имя - {{ profile.name }}, Возраст - {{ profile.age }}, Навык - {{ profile.skill }}
+      </article>
+    {% endfor %}
+  </div>   
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}  
+
+{% block title %} 
+  Добавление нового сотрудника
+{% endblock %} 
+
+{% block content %} 
+  <h1 align="center">Добавление нового сотрудника</h1>
+  <div class="container py-5">  
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        {{ field.label }} -  {{ field }} - {{ field.help_text }}<br>
+      {% endfor %}
+      {% if form.errors %}
+        {{ form.errors }}
+      {% endif %}
+      <button type="submit">
+        {% if form.instance.pk %}
+          Редактировать
+        {% else %}
+          Создать профайл
+        {% endif %}
+      </button>
+    </form>
+  </div>
+{% endblock %}  
